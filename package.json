@@ -1,13 +1,21 @@
 {
-  "name": "mdx-animation-prezzo",
+  "name": "react-in-a-jiffy",
   "version": "0.0.0",
-  "main": "index.js",
+  "main": "deck.mdx",
   "license": "MIT",
+  "repository": "git@github.com:one19/prezzo-react-in-a-jiffy-1.git",
   "scripts": {
-    "start": "mdx-deck deck.mdx -title 'CSS-ANIM'",
-    "build": "mdx-deck build deck.mdx"
+    "start": "mdx-deck deck.js",
+    "prebuild": "yarn clean",
+    "build": "mdx-deck build deck.js",
+    "postbuild": "yarn move-to-docs && yarn move-static",
+    "clean": "rm -rf docs dist",
+    "move-to-docs": "mv dist docs",
+    "move-static": "cp images/* docs"
   },
   "devDependencies": {
-    "mdx-deck": "^1.2.3"
+    "husky": "^0.14.3",
+    "mdx-deck": "^1.7.1",
+    "mdx-deck-code-surfer": "^0.4.0"
   }
 }
